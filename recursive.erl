@@ -19,3 +19,28 @@ tail_len(L) -> tail_len(L, 0).
 
 tail_len([], Acc) -> Acc;
 tail_len([_|T], Acc) ->  tail_len(T, Acc+1).
+
+
+duplicate(0, _) -> [];
+duplicate(N, Term) when N > 0 ->
+    [Term | duplicate(N-1, Term)].
+
+tail_duplicate(N, Term) ->
+    tail_duplicate(N, Term, []).
+
+tail_duplicate(0, _, List) ->
+    List;
+tail_duplicate(N, Term, List) when N > 0 ->
+    tail_duplicate(N-1, Term, [Term|List]).
+
+
+
+reverse([]) -> [];
+reverse([H|T]) -> reverse(T) ++ [H].
+
+tail_reverse(L) -> tail_reverse(L, []).
+
+tail_reverse([], Acc) -> Acc;
+tail_reverse([H|T], Acc) -> tail_reverse(T, [H|Acc]).
+
+
